@@ -154,4 +154,24 @@
     * para `$user` busca la llave _name_ en `$uid` y reestablece `$uid` con una llamada a su llave _uid_
 
     * para `$group` busca la llave _name_ en `$gid` y reestablece `$gid` con una llamada a su llave _gid_
-1. 
+1. Declara una variable llamada `$cwd_links` como string vacío
+1. Declara una variable llamada `$path` como un arreglo de los elementos de la variable global `$cwd` separados por diagonales
+1. Asigna la variable `$n` el número de elementos de la variable `$path`
+1. Cicla los elemenots de `$path` para generar los links dentro de `$cwd_links` hacia la función **g** de Javascript pasando como parametro **`FilesMan`**
+1. Declara una variable llamada `$charsets` como un array que contiene los siguientes strings: "UTF-8", "Windows-1251", "KOI8-R", "KOI8-U", "cp866"
+1. Declara una variable llamada `$opt_charsets` y options HTML ciclando los elementos de `$charsets` 
+1. Declara una variable llamada `$m` con los valores del menú y las funciones:
+    
+    1. Sec. Info: **`SecInfo`** 
+    1. Files: **`FilesMan`** 
+    1. Console: **`Console`** 
+    1. SQL: **`Sql`** 
+    1. Php: **`Php`** 
+    1. String tools: **`StringTools`** 
+    1. BruteForce: **`Bruteforce`** 
+    1. Network: **`Network`** 
+    1. Logout: **`Logout`** en caso de que no esté vacía la variable global `$auth_pass`
+    1. Self Remove: **`SelfRemove`** 
+1. Declara una variable llamada `$menu` con que genera links de tipo *onClick* hacia la función de javascript **g** ciclando el arreglo `$m` 
+1. Imprime una tabla **`HTML`** con los siguientes parámetros:
+    * 
