@@ -133,3 +133,25 @@
     > `diskfreespace` o `disk_free_space` devuelve el número de **bytes** disponibles en el sistema de archivos o partición
 1. Asigna la variable `$totalSpace` con el valor de la funcion 'disk_total_space' con el parametro de la variable global `$cwd`
     > `disk_total_space` devuelve el número de **bytes** totales en el sistema de archivos o partición
+
+    Comprueba que `$totalSpace` sea distinto a 0, de lo contrario asigna 1
+1. Asigna la variable `$release` con el valor de la funcion 'php_uname' con el parametro "r"
+    > Devuelve el nombre de la versión liberada del sistema operativo
+1. Asigna la variable `$kernel` con el valor de la funcion 'php_uname' con el parametro "s"
+    > Devuelve el nombre del sistema operativo
+1. Declara una variable llamada `$explink` con una url que realiza una búsqueda en **_exploit-db_** concatenando el sistema operativo y su versión en las 2 variables anteriores.
+1. Comprueba que la función `posix_getegid` exista
+    
+    En caso de que no exista, declara la variable `$group` con el valor "?", y las variables `$user`,`$uid`,`$gid` con las funciones **get_current_user**,**getmyuid** y **getmygid** respectivamente.
+    En caso de que exista utiliza las siguientes funciones para asignar las variables anteriores
+
+    * Para `$uid` utiliza **posix_getpwuid** pasando como parámetro el resultado de **posix_geteuid**
+    > TODO: documentar las funciones posix de uid
+
+    * Para `$gid` utiliza **posix_getgrgid** pasando como parámetro el resultado de **posix_getegid**
+    > TODO: documentar las funciones posix de gid
+    
+    * para `$user` busca la llave _name_ en `$uid` y reestablece `$uid` con una llamada a su llave _uid_
+
+    * para `$group` busca la llave _name_ en `$gid` y reestablece `$gid` con una llamada a su llave _gid_
+1. 
