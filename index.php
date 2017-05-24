@@ -192,12 +192,6 @@ else if (window.ActiveXObject)
 req = new ActiveXObject('Microsoft.XMLHTTP');
  if (req) {
  req.onreadystatechange = processReqChange;
-
-TLP Green: Recipients may share TLP: GREEN information with peers and partner organizations within their sector or community,
-but not via publicly accessible channels.
-Page 9 of 35
-Akamai Technologies, Inc. (TLP:Green)
-)
  req.open('POST', url, true);
  req.setRequestHeader ('Content-Type', 'application/x-www-form-urlencoded');
  req.send(params);
