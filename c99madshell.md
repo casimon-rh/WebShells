@@ -120,7 +120,7 @@
     1. Verifica que el contenido del parametro **post** llamado 'p2' contenga un salto de línea, en caso positivo asigna el vacío a una variable llamada `p2_`, en caso contrario asigna el valor del parámetro en la variable anterior escapando los caracteres especiales html, incluyendo las comillas dobles
     1. Verifica que el contenido del parametro **post** llamado 'p3' contenga un salto de línea, en caso positivo asigna el vacío a una variable llamada `p3_`, en caso contrario asigna el valor del parámetro en la variable anterior escapando los caracteres especiales html, incluyendo las comillas dobles
     1. Defina una variable `d` con el DOM **document**
-    1. Define una función llamada **set** que solicita como atributos a,c,p1,p2,p3 y charset *igual a las variables asignadas arriba*, y mientras no sean nulos, los setea en los inputs del formularo **mf**
+    1. Define una función llamada **set** que solicita como atributos a,c,p1,p2,p3 y charset *igual a las variables asignadas arriba*, y mientras no sean nulos, los setea en los inputs del formularo **mf**, en caso de que sean nulos asigna los valores que se definieron de forma inicial.
     1. Define una función llamada **g** que solicita como atributos a,c,p1,p2,p3 y charset *igual a las variables asignadas arriba*, llama a la funcion **set** y realiza el submit del formulario **mf**
     1. Define una función llamada **a** que solicita como atributos a,c,p1,p2,p3 y charset *igual a las variables asignadas arriba*, llama a la función **set** y después define una variable llamada **params** con el valor `"ajax=true"`, finalmente cicla los elementos del formulario **mf** y los concatena a la variable **params** como *query-string* y llama a la función **sr** con la variable `$_SERVER[REQUEST_URI]` con las diagonales escapadas como primer parámetro y la variable **params** como segundo parámetro
     > Request URI es la URI que se utilizó para acceder a la página
@@ -173,5 +173,43 @@
     1. Logout: **`Logout`** en caso de que no esté vacía la variable global `$auth_pass`
     1. Self Remove: **`SelfRemove`** 
 1. Declara una variable llamada `$menu` con que genera links de tipo *onClick* hacia la función de javascript **g** ciclando el arreglo `$m` 
+1. Declara una variable llamada `$drives` con que genera links de tipo *onClick* hacia la función de javascript **g** ciclando las letras del alfabeto desde la c a la z que sean **directorios** 
 1. Imprime una tabla **`HTML`** con los siguientes parámetros:
-    * 
+    
+    * Los primeros 120 caracteres de la función `php_uname`
+    > Da información general del sistema operativo
+
+    * El link de la variable `$explink` hacia exploit-dbcom
+    * El *uid*, nombre de usuario, *gid* y nombre de grupo
+    * La versión de php
+    * Si php se está ejecutando en *safe_mode*
+    * Un link **`HTML`** que llama a la función `g` de Javascript con el parametro 'PHP' como a, null en b y 'info' en p2
+    * La fecha
+    * Una llamada a la función **`wsoViewSize`** pasando de parametro la variable global `$totalSpace`,
+    * El calculo del porcentaje disponible en disco 
+    * Concatena la variable global `$cwd_links` con una llamada ala función wsoPermsColor, con la variable global `$cwd` como parámetro
+    * Un link **`HTML`** que llama a la función `g` de Javascript con el parametro 'FilesMan' como a, '$GLOBAL[home_cwd]' en b y '' en los otros parámetros
+    * El contenido de la variable `$drives`
+    * Un select **`HTML`** con los charsets
+    * La IP del servidor
+    * La IP del cliente
+    * El contenido de la variable `$menu`
+    > El menu con las opciones
+1. Define la función **`wsoFooter`**, que verifica que el directorio de la aplicación sea editable. Posteriormente imprime una tabla **`HTML`** que contiene funcionalidades de administración de archivos como son crear nuevo archivo o directorio, subir un nuevo archivo, etc.
+1. Verifica que existan las funciones posix y en caso de que no, las define con retornos falsos para que no existan errores de interpretación.
+1. Define la función **`wsoEx`** solicita de parámetro un comando y revisa que existan las funciones siguientes para intentar ejecutarlo:
+    * exec
+    * passthru
+    * system
+    * shell_exec
+
+    En caso de que ninguna de las funciones anteriores exista, utiliza la función `popen` para ejecutar el comando.
+    > `popen` genera un pipe hacia un proceso sobre un archivo.
+
+    Finalmente regresa el resultado.
+1. Define la función **`wsoViewSize`** con un parámetro (aparentemente número de bytes) que funciona para mostrar el parámetro de entrada en *KB*, *MB* o *GB*
+1. Define la función **`wsoPerms`** y **`wsoPermsColor`** que muestra y colorea los permisos de un archivo o directorio
+1. Define la función **`wsoScandir`** que solicita un parámetro (aparentemente la ruta a un directorio) y verifica que exista a función `scandir`, en caso de que no exista, cicla manualmente los archivos y directorios del parámetro
+    > `scandir` muestra los archivos y directorios dentro de un directorio
+1. Define la función **`wsoWhich`** que solicita un parámetro (aparentemente el nombre del programa), con el cual llama a la función **`wsoEx`** dentro del comando **which**. Verifica que el resultado no esté vacío antes de enviarlo 
+    > **which** funciona para obtener la ubicacion de un programa
