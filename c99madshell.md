@@ -213,3 +213,36 @@
     > `scandir` muestra los archivos y directorios dentro de un directorio
 1. Define la función **`wsoWhich`** que solicita un parámetro (aparentemente el nombre del programa), con el cual llama a la función **`wsoEx`** dentro del comando **which**. Verifica que el resultado no esté vacío antes de enviarlo 
     > **which** funciona para obtener la ubicacion de un programa
+
+## **`actionSecInfo`** del menú
+
+1. Llama a la función **`wsoHeader`**
+1. Imprime como encabezado "Información de seguridad del servidor"
+1. Define la función **`wsoSecParam`** solicita dos parámetros y les aplica formato **`HTML`** en la siguiente información (si existe)
+    
+     Clave | Función | Descripcion
+     ----- | ------  | ----
+     Server software | `getenv('SERVER_SOFTWARE')` | Tipo de servidor de aplicacion?
+     Load Apache Modules | `apache_get_modules()` | Obtiene una lista de los modulos cargados del servidor Apache
+     Disabled PHP Functions | `$GLOBALS['disable_functions']` | Funciones desabilitadas por seguridad 
+     Open base dir | `ini_get('open_basedir')` | Limite de los archivos a los que puede acceder PHP
+     Safe mode exec dir | `ini_get('safe_mode_exec_dir')` | En caso de que php esté corriendo en "safe_mode", la función `system` no ejecuta programas fuera del directorio
+     Safe mode include dir | `ini_get('safe_mode_include_dir')` | En caso de que php esté corriendo en "safe_mode", la función `system` no toma en cuenta archivos fuera del directorio
+     cURL support | `function_exists('curl_version')` | **Curl** es una herramienta para transferir datos en sintaxis URL desde consola
+     Supported databases | `function_exists()` | verifica que existan funciones de bases de datos como son mysql, mssql, postgresql u oracle 
+     ----| ---- | --- 
+     Readable /etc/passwd | `is_readable` | Contiene la información del usuario en **Linux**
+     Readable /etc/shadow | `is_readable` | Contiene las contraseñas cifradas de los usuarios en **Linux**
+     OS version | `file_get_contents('/proc/version')` | El archivo contiene la versión del Kernel, el usuario, el compilador, etc. en **Linux**
+     Distr name | `file_get_contents('/etc/issue.net')` | Para los sistemas basados en **Debian**, contiene la versión de la distribución.
+     Userful | `implode(wsoWhich([]))` | Busca los programas siguientes en el sistema: gcc, lcc, cc, ld ,make, php, perl, pytohn, ruby, tar, gzip, bzip, bzip2, nc, locate, suidperl
+     Danger | `implode(wsoWhich([]))` | Busca los programas siguientes en el sistema: kav, nod32, dcored, uvscan, sva, drwebd, clamd, rkhunter, chkrootkit, iptables, ipfw, tripwire, shieldcc, portsentry, snort, ossec, lidsadm, tcplodg, sxid, logcheck, logwatch, sysmask, zmbscap, sawmill ,wormscan, ninja
+     Downloaders | `implode(wsoWhich([]))` | Busca los programas siguientes en el sistema: wget, tech, lynx, links, curl, get, lwp-mirror
+     HDD space | `df -h` | Muestra la cantidad de espacil libre en los diferentes dispositivos
+     Hosts | `file_get_contents('/etc/hosts')` | El archivo contiene información del nombres de host
+     Users | Cicla todos los usuarios que puedan leerse.
+     OS version | `ver` | Version de Sistema Operativo **Windows**
+     Account Settings | `net accounts` | Muestra las configuraciones actuales, los requerimientos de password y el rol de un servidor **Windows**
+     User Accounts | `net user` | Muestra el usuario actual en red para un sistema **Windows**
+
+     Ejecuta la función **`wsoFooter`**
