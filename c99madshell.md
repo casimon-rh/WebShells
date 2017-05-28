@@ -214,7 +214,7 @@
 1. Define la función **`wsoWhich`** que solicita un parámetro (aparentemente el nombre del programa), con el cual llama a la función **`wsoEx`** dentro del comando **which**. Verifica que el resultado no esté vacío antes de enviarlo 
     > **which** funciona para obtener la ubicacion de un programa
 
-## **`actionSecInfo`** del menú
+## **`actionSecInfo`**
 
 1. Llama a la función **`wsoHeader`**
 1. Imprime como encabezado "Información de seguridad del servidor"
@@ -245,4 +245,55 @@
      Account Settings | `net accounts` | Muestra las configuraciones actuales, los requerimientos de password y el rol de un servidor **Windows**
      User Accounts | `net user` | Muestra el usuario actual en red para un sistema **Windows**
 
-     Ejecuta la función **`wsoFooter`**
+1. Ejecuta la función **`wsoFooter`**
+
+## **`actionPhp`**
+1. Comprueba si esta o no ocupando AJAX y genera la Cookie
+1. Ejecuta la función **`wsoHeader`**
+1. Muestra un editor de texto que ejecuta las funciones de código php.
+> Utiliza la función *eval*, limpia los buffers y caracteres especiales antes de ejecutarla.
+1. Ejecuta la función **`wsoFooter`**
+
+## **`actionFilesMan`**
+1. Verifica que la *Cookie* llamada **f** exista y la deserializa
+1. Verifica que el parámetro **post** llamado 'p1' exista y lo evalúa en un Switch:
+    1. uploadFile
+    1. mkdir
+    1. delete
+    1. paste
+        1. move-paste
+        1. copy-paste
+        1. zip
+        1. unzip   
+        1. tar
+1. Ejecuta la función **`wsoHeader`**
+1. Muestra un editor con la información de los archivos y genera un menú que permite ejecutar las funciones arriba mencionadas
+1. Ejecuta la función **`wsoHeader`**
+
+## **`actionStringTools`**
+
+Contiene la funcionalidad para ejecutar funciones de conversión *string*:
+
+Nombre Función | Función en PHP
+----- | -----
+Base64 encode | `base64_enccode`
+Base64 decode | `base64_decode`
+Url encode | `urlencode`
+Url decode | `urldecode`
+Full urlencode | `full_urlencode`
+md5 hash | `md5`
+sha1 hash | `sha1`
+crypt | `crypt`
+CRC32 | `crc32`
+ASCII to HEX | `ascii2hex`
+HEX to ASCII | `hex2ascii`
+HEX to DEC | `hexdec`
+HEX to BIN | `hex2bin`
+DEC to HEX | `dechex`
+DEC to BIN | `decbin`
+BIN to HEX | `binhex`
+BIN to DEC | `bindec`
+String to lower case | `strtolower`
+String to upper case | `strtoupper`
+Htmlspecialhars | `htmlspecialchars`
+String length | `strlen`
