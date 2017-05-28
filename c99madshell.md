@@ -268,15 +268,16 @@
         1. tar
 1. Ejecuta la función **`wsoHeader`**
 1. Muestra un editor con la información de los archivos y genera un menú que permite ejecutar las funciones arriba mencionadas
-1. Ejecuta la función **`wsoHeader`**
+1. Ejecuta la función **`wsoFooter`**
 
 ## **`actionStringTools`**
 
+1. Ejecuta la función **`wsoHeader`**
 Contiene la funcionalidad para ejecutar funciones de conversión *string*:
 
 Nombre Función | Función en PHP
 ----- | -----
-Base64 encode | `base64_enccode`
+Base64 encode | `base64_encode`
 Base64 decode | `base64_decode`
 Url encode | `urlencode`
 Url decode | `urldecode`
@@ -297,3 +298,11 @@ String to lower case | `strtolower`
 String to upper case | `strtoupper`
 Htmlspecialhars | `htmlspecialchars`
 String length | `strlen`
+
+1. Declara la función RecursiveGlob para hacer búsquedas, también llama a los links siguientes de crack:
+    1. [hashcracking.ru](https:hashcracking.ru/index.php)
+    1. [md5.rednoize](http://md5rednoize.com)
+    1. [crackfor.me](http://crackfor.me/index.php)
+1. Ejecuta la función **`wsoFooter`**
+
+## **`actionFileTools`**
