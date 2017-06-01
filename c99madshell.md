@@ -335,6 +335,7 @@ String length | `strlen`
 1. Ejecuta funciones de intentos de login Fuerza bruta de los siguientes tipos:
     1. etc/passwd : reverse (login -> nigol)
     1. dictionary
+    
     Y lo ejecuta sobre los siguientes servicios:
     1. Mysql
     1. Postgresql
